@@ -1,18 +1,20 @@
 package mod;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
 public class Card
 {
-	private int id;
+	private Integer id;
 	private String name;
 	private String companyName;
 	private String email;
 	private String phoneNumber;
 
-	public Card(String name, String companyName, String email, String phoneNumber)
+	public Card(Integer id, String name, String companyName, String email, String phoneNumber)
 	{
+		this.id = id;
 		this.name = name;
 		this.companyName = companyName;
 		this.email = email;
@@ -23,12 +25,44 @@ public class Card
 	{
 		try {
 		Statement statement = JDBC.Connexion();
-		String stmt = "INSERT INTO card(name, email, company_name, phone_number) VALUES ('" + this.name + "', '" + this.email + "', '" + this.companyName + "', '" + this.phoneNumber + "') ";
+		String stmt;
+
+		if (this.id == null)
+		{
+			stmt = "INSERT INTO card(name, email, company_name, phone_number) VALUES ('" + this.name + "', '" + this.email + "', '" + this.companyName + "', '" + this.phoneNumber + "') ";
+		}
+		else
+		{
+			stmt = "UPDATE card SET name = '" + this.name + "', email = '" + this.email + "', company_name = '" + this.companyName + "', phone_number = '" + this.phoneNumber + "' WHERE id = " + this.id;
+		}
 		statement.executeQuery(stmt);
 
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+	}
+
+	public static Card getCardProfile()
+	{
+		try {
+			Statement statement = JDBC.Connexion();
+
+			String stmt = "select * from card WHERE id = " + 1 + "";
+			ResultSet result  = statement.executeQuery(stmt);
+
+			while (result.next())
+			{
+				Card card = new Card(result.getInt("id"), result.getString("name"), result.getString("company_name"), result.getString("email"), result.getString("phone_number"));
+				return card;
+			}
+			result.close();
+
+
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 	public int getId()

@@ -36,8 +36,5 @@ public class Main extends Application
 		{
 			e.printStackTrace();
 		}
-
-		Card card = new Card("John", "Amazon", "johnsmith@gmail.com", "0407548795");
-		card.save();
 	}
 }
