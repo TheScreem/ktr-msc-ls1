@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="241.0" prefWidth="600.0000999999975" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="view.ConnectController">
+  <children>
+    <TextField id="email" fx:id="txt_email" layoutX="200.0" layoutY="88.0" prefWidth="200.0" />
+    <Text layoutX="151.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email :" />
+    <Text layoutX="274.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login">
+      <font>
+        <Font name="System Bold" size="20.0" />
+      </font>
+    </Text>
+    <Text layoutX="124.0" layoutY="154.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password :" />
+    <TextField id="password" fx:id="txt_password" layoutX="200.0" layoutY="135.0" prefWidth="200.0" />
+    <Button fx:id="btn_login" layoutX="269.0" layoutY="182.0" mnemonicParsing="false" text="Login" />
+  </children>
+</AnchorPane>

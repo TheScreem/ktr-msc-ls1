@@ -4,6 +4,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import application.Main;
+
 public class Card
 {
 	private Integer id;
@@ -47,7 +49,7 @@ public class Card
 		try {
 			Statement statement = JDBC.Connexion();
 
-			String stmt = "select * from card WHERE id = " + 1 + "";
+			String stmt = "select * from card WHERE id = " + Main.id + "";
 			ResultSet result  = statement.executeQuery(stmt);
 
 			while (result.next())

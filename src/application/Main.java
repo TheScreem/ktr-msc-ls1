@@ -15,6 +15,8 @@ public class Main extends Application
 
 	public static Stage PrimaryStage;
 
+	public static int id;
+
 	public static void main(String[] args) throws IOException
 	{
 		launch(args);
@@ -25,10 +27,10 @@ public class Main extends Application
 	{
 		try
 		{
-			AnchorPane root = FXMLLoader.<AnchorPane>load(getClass().getResource("/view/profile.fxml"));
-		        Scene scene = new Scene(root, 600, 500);
+			AnchorPane root = FXMLLoader.<AnchorPane>load(getClass().getResource("/view/connect.fxml"));
+		        Scene scene = new Scene(root, 600, 400);
 		        PrimaryStage = primaryStage;
-		        PrimaryStage.setTitle("My Profile");
+		        PrimaryStage.setTitle("Login");
 		        PrimaryStage.setScene(scene);
 		        PrimaryStage.show();
 		}
@@ -36,5 +38,22 @@ public class Main extends Application
 		{
 			e.printStackTrace();
 		}
+	}
+
+	public static void ChangerScene(String URL, int width, int height, String Title)
+	{
+		try {
+
+			AnchorPane root = FXMLLoader.load(Main.class.getClassLoader().getResource("view/profile.fxml"));
+			Scene scene = new Scene(root, width, height);
+	        PrimaryStage.setTitle(Title);
+	        PrimaryStage.setScene(scene);
+	        PrimaryStage.setResizable(false);
+	        PrimaryStage.show();
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
 	}
 }

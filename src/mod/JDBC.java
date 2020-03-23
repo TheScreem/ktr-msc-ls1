@@ -2,6 +2,7 @@ package mod;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -26,5 +27,26 @@ public class JDBC
 		}
 
         return statement;
+    }
+
+    public static int Login(String email, String password)
+    {
+    	try {
+			Statement statement = JDBC.Connexion();
+
+			String stmt = "select id from card WHERE email = '" + email + "' AND password = MD5('" + password + "')";
+			ResultSet result  = statement.executeQuery(stmt);
+
+			while (result.next())
+			{
+				return result.getInt("id");
+			}
+			result.close();
+
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		}
+    	return -1;
     }
 }
