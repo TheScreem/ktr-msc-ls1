@@ -1,5 +1,7 @@
 package view;
 
+import static javax.swing.JOptionPane.showMessageDialog;
+
 import application.Main;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -23,10 +25,15 @@ public class ConnectController {
 			if (id != -1) {
 				try {
 					Main.id = id;
-					Main.ChangerScene("profile.fxml", 800, 600, "My profile");
+					Main.ChangerScene("profile.fxml", 600, 400, "My profile");
 				} catch (Exception e) {
+
 					e.printStackTrace();
 				}
+			}
+			else
+			{
+				showMessageDialog(null, "Bad password / email !");
 			}
 		});
 	}

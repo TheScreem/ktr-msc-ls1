@@ -28,7 +28,7 @@ public class Main extends Application
 		try
 		{
 			AnchorPane root = FXMLLoader.<AnchorPane>load(getClass().getResource("/view/connect.fxml"));
-		        Scene scene = new Scene(root, 600, 400);
+		        Scene scene = new Scene(root, 600, 241);
 		        PrimaryStage = primaryStage;
 		        PrimaryStage.setTitle("Login");
 		        PrimaryStage.setScene(scene);
